@@ -6,7 +6,7 @@
 
 This project aims to create an Algorand Node (testnet, mainnet) on AWS infrastructure.
 
-# Install Terrafor
+# Install Terraform
 
 You need to install Terraform to provision your infrastructure: https://learn.hashicorp.com/terraform.
 If you want to go fast you can use `install-terraform.sh` in `scripts` directory.
