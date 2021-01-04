@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="http://stonize.com/" target="blank"><img src="https://stonize.com/static/media/logo_2.b1e2c59b.png" width="320" alt="Stonize Logo" /></a>
+</p>
+
 # README
 
 This project aims to create an Algorand Node (testnet, mainnet) on AWS infrastructure.
