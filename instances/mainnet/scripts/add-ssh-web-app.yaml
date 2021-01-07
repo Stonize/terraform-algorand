@@ -1,0 +1,34 @@
+#cloud-config
+# Add groups to the system
+# Adds the ubuntu group with members 'root' and 'sys'
+# and the empty group hashicorp.
+groups:
+  - ubuntu: [root,sys]
+  - hashicorp
+
+# Add users to the system. Users are added after groups are added.
+users:
+  - default
+  - name: terraform
+    gecos: terraform
+    shell: /bin/bash
+    primary_group: hashicorp
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    # ssh_import_id:
+    lock_passwd: false
+    ssh_authorized_keys:
+      - ${ssh_key}
+
+write_files:
+  - path: /tmp/install-algorand.sh
+    permissions: '0755'
+    owner: terraform:hashicorp
+    content: !!binary |
+      ${install_algorand}
+  
+runcmd:
+  - ["sudo", "-u", "terraform", "/tmp/install-algorand.sh", "light", "mainnet"]
+
+
+

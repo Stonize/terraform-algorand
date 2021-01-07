@@ -14,8 +14,10 @@ module "testnet" {
 
 }
 
-#module "mainnet" {
-#  source            = "./mainnet"
-#  vpc_id            = module.vpc.vpc_id
-#  public_subnet_id  = module.vpc.public_subnet_id
-#}
+module "mainnet" {
+  source            = "./mainnet"
+
+  vpc_id            = module.vpc.vpc_id
+  public_subnet_id  = module.vpc.public_subnet_id
+
+}
